@@ -1,0 +1,74 @@
+1. Understanding merge sort
+
+Given the following list of numbers 
+21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40
+
+What is the resulting list that will be sorted after 3 recursive calls to mergesort?
+
+left = 
+  left = 
+    left = 21, 1, 
+    right = 26, 45, 
+  right = 
+    left = 29, 28,
+    right = 2, 9
+right = 
+  left = 
+    left = 16, 49, 
+    right = 39, 27, 
+  right = 
+    left = 43, 34,
+    right = 46, 40
+
+What is the resulting list that will be sorted after 16 recursive calls to mergesort? (Each item is broken down into an array.length 1)
+
+(1)left = 
+  (2)left = 
+    (3)left = 
+      (4)left = 21, 
+      right = 1, 
+        (merge 1)left = 1, 21
+    (3)right = 
+      (5)left = 26, 
+      right = 45,
+        (merge 2)right = 26, 45
+
+        (merge 3)left = 1, 21, 26, 45
+
+  right = 
+    (6)left = 29, 28,
+      (14)left = 29,
+      right = 28
+        (merge 4)left = 28, 29
+    right = 2, 9
+      (15)left = 2,
+      right = 9
+        (merge 5)right = 2, 9
+
+        (merge 6)right = 2, 9, 28, 29
+
+        (merge 7)left = 1, 2, 9, 21, 26, 28, 29, 45
+
+right = 
+  (7)left = 
+    (8)left = 16, 49,
+      (9)left = 16,
+      right = 49 
+    right = 39, 27, 
+      (10)left = 39,
+      right = 27,
+  right = 
+    (11)left = 43, 34,
+      (12)left = 43,
+      right = 34
+    right = 46, 40
+      (13)left = 46,
+      right = 40
+
+What are the first 2 lists to be merged?
+  left = 21
+  right = 1
+  merge to 1, 21
+
+Which two lists would be merged on the 7th merge?
+        (merge 7)left = 1, 2, 9, 21, 26, 28, 29, 45
